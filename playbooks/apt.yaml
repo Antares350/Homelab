@@ -1,0 +1,19 @@
+- name: Inicializando los servidores Debian
+  hosts: homelab
+  become: yes
+  tasks:
+    - name: Update packages
+      apt:
+        name: "*"
+        state: latest
+        update_cache: yes
+    - name: Install packages
+      apt:
+        package:
+          name: 
+            - vim
+            - python3
+            - sudo
+            - neofetch
+          state: latest
+
